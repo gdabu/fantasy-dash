@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  background: #3f335626;
+}
+
+.navbar div {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar--title p {
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 24px;
+}
+
+.navbar--child__rightAligned {
+  margin-left: auto;
+}
