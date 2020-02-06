@@ -8,7 +8,7 @@ const module_teams = props => {
         <h1 class="module--title">TEAMS</h1>
       </div>
       <div class="module--teamContainerRow">
-        <div class="module--teamContainer">
+        <div class="module--body module--body__teams">
           <Team teamName={"NIKOCA-COLA"} />
           <Team teamName={"FUN GUY"} />
           <Team teamName={"JEBRON LAMES"} />
@@ -22,6 +22,8 @@ const module_teams = props => {
               </p>
             </div>
           </div>
+
+          {/* <div style={{ width: "50px" }}></div> */}
         </div>
       </div>
     </div>
