@@ -1,6 +1,8 @@
 import React from "react";
 import Team from "./team.js";
 
+import "./module_teams.scss";
+
 const module_teams = props => {
   return (
     <div class="module module__teams">
