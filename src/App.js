@@ -12,7 +12,7 @@ function App() {
     <Fragment>
       <NavBar />
 
-      <div class="moduleContainer">
+      <div class="moduleGrid">
         <ModuleTeams />
         <ModuleCharts />
         <ModuleRankings />
