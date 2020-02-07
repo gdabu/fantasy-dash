@@ -8,8 +8,10 @@ const PlayerListItem = props => {
         <img src="./img/player_profiles/lebron_james.png"></img>
       </div>
       <div class="playerListItem--nameContainer">
-        <p class="playerListItem--name">LeBron James</p>
-        <p class="subLabel">LAL | F</p>
+        <p class="playerListItem--name">{props.playerName}</p>
+        <p class="subLabel">
+          {props.playerNBATeam} | {props.playerPosition}
+        </p>
       </div>
       <div class="playerListItem--icon playerListItem--icon__first ">
         <i class="fas fa-eye-slash"></i>

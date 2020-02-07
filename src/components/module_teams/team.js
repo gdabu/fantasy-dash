@@ -16,10 +16,26 @@ const team = props => {
       <div class="team--playerContainer">
         <p class="subHeader">Players</p>
         <div class="team--playerList">
-          <PlayerListItem />
-          <PlayerListItem />
-          <PlayerListItem />
-          <PlayerListItem />
+          <PlayerListItem
+            playerName={"LeBron James"}
+            playerNBATeam={"LAL"}
+            playerPosition={"F"}
+          />
+          <PlayerListItem
+            playerName={"LeBron James"}
+            playerNBATeam={"LAL"}
+            playerPosition={"F"}
+          />
+          <PlayerListItem
+            playerName={"LeBron James"}
+            playerNBATeam={"LAL"}
+            playerPosition={"F"}
+          />
+          <PlayerListItem
+            playerName={"LeBron James"}
+            playerNBATeam={"LAL"}
+            playerPosition={"F"}
+          />
         </div>
         <button class="btn btn__secondary team--addPlayerButton">
           <i class="fas fa-plus-circle"></i> ADD PLAYER
