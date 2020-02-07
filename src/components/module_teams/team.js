@@ -1,5 +1,5 @@
 import React from "react";
-import "./module_team.scss";
+import "./module_teams.scss";
 import PlayerListItem from "./player_list_item.js";
 
 const team = props => {
