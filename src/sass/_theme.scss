@@ -20,15 +20,24 @@ p {
 .btn {
   padding: 12px 25px;
   border-radius: 6px;
-  border: none;
+  border: 1px solid #ffffff00;
   min-width: 150px;
   cursor: pointer;
-
+  transition: background 0.2s linear, color 0.2s linear;
   color: white;
   background: #3f3356;
-  transition: background 0.2s linear, color 0.2s linear;
+
   &:hover {
     background: #261c38;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transition: background 0.05s linear;
+    background: #331077;
   }
 }
 
