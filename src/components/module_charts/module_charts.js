@@ -1,7 +1,10 @@
-import React from "react";
-import Chart from "chart.js";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import Chart from "chart.js";
 
+import Checkbox from "../Checkbox/Checkbox.js";
+
+import STAT_TYPES from "../../enums/stat_types.js";
 import "./module_charts.scss";
 
 class module_charts extends React.Component {
@@ -9,6 +12,31 @@ class module_charts extends React.Component {
     super(props);
     this.state = { chartType: "radar" };
   }
+
+  statTypeCheckBox_onCheck = (stat, checkedValue) => {
+    console.log(stat);
+    console.log(checkedValue);
+  };
+
+  initializeStatTypeCheckboxes = () => {
+    let checkBoxes = [];
+
+    for (const stat in STAT_TYPES) {
+      let stat_abbreviation = STAT_TYPES[stat].abbr;
+      let stat_name = STAT_TYPES[stat].name;
+
+      checkBoxes.push(
+        <Checkbox
+          itemClickHandler={this.statTypeCheckBox_onCheck}
+          label={stat_abbreviation}
+          value={stat_name}
+          checkedValue={true}
+        />
+      );
+    }
+
+    return checkBoxes;
+  };
 
   setChartType = () => {
     this.setState(function(prevState, props) {
@@ -73,6 +101,8 @@ class module_charts extends React.Component {
         <div class="module--body module--body__chart">
           <canvas ref="radarChart" class="module--radarChart"></canvas>
         </div>
+
+        {this.initializeStatTypeCheckboxes()}
         <button class="btn" onClick={this.setChartType}>
           Alternate Graph
         </button>
