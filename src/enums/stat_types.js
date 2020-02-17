@@ -10,4 +10,13 @@ const STAT_TYPES = Object.freeze({
   TURN_OVERS: { name: "Turn Overs", abbr: "TO" }
 });
 
-export default STAT_TYPES;
+let getStatAbbrArray = function() {
+  let abbrs = [];
+  for (const stat in STAT_TYPES) {
+    let stat_abbreviation = STAT_TYPES[stat].abbr;
+    abbrs.push(stat_abbreviation);
+  }
+  return abbrs;
+};
+
+export { STAT_TYPES, getStatAbbrArray };

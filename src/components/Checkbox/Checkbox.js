@@ -13,7 +13,7 @@ const Checkbox = props => {
         onClick={event => {
           let newCheckedValue = event.target.checked;
           setChecked(newCheckedValue);
-          props.itemClickHandler(props.value, newCheckedValue);
+          props.itemClickHandler(props.value, props.label, newCheckedValue);
         }}
       />
       <span class="checkmark"></span>

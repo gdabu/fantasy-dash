@@ -4,18 +4,33 @@ import Chart from "chart.js";
 
 import Checkbox from "../Checkbox/Checkbox.js";
 
-import STAT_TYPES from "../../enums/stat_types.js";
+import { STAT_TYPES, getStatAbbrArray } from "../../enums/stat_types.js";
 import "./module_charts.scss";
 
 class module_charts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chartType: "radar" };
+    this.state = { chartType: "radar", chartLabels: getStatAbbrArray() };
   }
 
-  statTypeCheckBox_onCheck = (stat, checkedValue) => {
-    console.log(stat);
-    console.log(checkedValue);
+  statTypeCheckBox_onCheck = (statKey, statAbbr, checkedValue) => {
+    this.setState(function(prevState, props) {
+      let updatedChartLabels = prevState.chartLabels;
+
+      if (!checkedValue) {
+        updatedChartLabels = prevState.chartLabels.filter(function(
+          value,
+          index,
+          arr
+        ) {
+          return value !== statAbbr;
+        });
+      } else {
+        updatedChartLabels.push(statAbbr);
+      }
+
+      return { chartLabels: updatedChartLabels };
+    });
   };
 
   initializeStatTypeCheckboxes = () => {
@@ -29,7 +44,7 @@ class module_charts extends React.Component {
         <Checkbox
           itemClickHandler={this.statTypeCheckBox_onCheck}
           label={stat_abbreviation}
-          value={stat_name}
+          value={stat}
           checkedValue={true}
         />
       );
@@ -48,12 +63,14 @@ class module_charts extends React.Component {
     });
   };
 
+  setChartLabels = () => {};
+
   drawChart = () => {
     var ctx = ReactDOM.findDOMNode(this.refs.radarChart);
     var myChart = new Chart(ctx, {
       type: this.state.chartType,
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: this.state.chartLabels,
         datasets: [
           {
             label: "Jebron Lames",
@@ -98,11 +115,16 @@ class module_charts extends React.Component {
         <div class="module--header">
           <h1 class="module--title">CHARTS</h1>
         </div>
+
         <div class="module--body module--body__chart">
-          <canvas ref="radarChart" class="module--radarChart"></canvas>
+          <div class="module--radarChart">
+            <canvas ref="radarChart"></canvas>
+          </div>
+          <div class="module--checkBoxContainer module--checkBoxContainer__chart">
+            {this.initializeStatTypeCheckboxes()}
+          </div>
         </div>
 
-        {this.initializeStatTypeCheckboxes()}
         <button class="btn" onClick={this.setChartType}>
           Alternate Graph
         </button>

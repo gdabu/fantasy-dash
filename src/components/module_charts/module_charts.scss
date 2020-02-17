@@ -1,3 +1,80 @@
-.module--radarChart {
-  max-width: 50%;
+.module--body__chart {
+  display: flex;
+  align-items: center;
+}
+
+.module--body__chart div {
+  min-width: 50%;
+}
+
+.module--checkBoxContainer {
+  padding: 20px;
+}
+
+.module--checkBoxContainer__chart {
+  display: flex;
+  flex-flow: wrap;
+}
+
+// @media only screen and (max-width: 639px) {
+//   .module--checkBoxContainer__chart::after {
+//     content: "";
+//     min-width: 135px;
+//   }
+// }
+
+// @media only screen and (min-width: 640px) and (max-width: 774px) {
+//   .module--checkBoxContainer__chart::after {
+//     content: "";
+//     min-width: 405px;
+//   }
+// }
+
+// @media only screen and (min-width: 775px) and (max-width: 800px) {
+//   .module--checkBoxContainer__chart::after {
+//     content: "";
+//     min-width: 135px;
+//   }
+// }
+
+// @media only screen and (min-width: 801px) and (max-width: 969px) {
+//   .module--checkBoxContainer__chart::after {
+//     content: "";
+//     min-width: 135px;
+//   }
+// }
+
+// @media only screen and (min-width: 1001px) and (max-width: 1209px) {
+//   .module--checkBoxContainer__chart::after {
+//     content: "";
+//     min-width: 175px;
+//   }
+// }
+
+// @media only screen and (min-width: 1251px) and (max-width: 1209px) {
+//   .module--checkBoxContainer__chart::after {
+//     content: "";
+//     min-width: 175px;
+//   }
+// }
+
+@media only screen and (max-width: 1630px) {
+  .module--body__chart div:first-child {
+    min-width: 60%;
+  }
+  .module--body__chart div:last-child {
+    min-width: 40%;
+  }
+}
+
+@media only screen and (max-width: 1330px) {
+  .module--body__chart {
+    flex-direction: column;
+  }
+  .module--body__chart div:first-child {
+    min-width: 100%;
+  }
+  .module--body__chart div:last-child {
+    min-width: 100%;
+  }
 }

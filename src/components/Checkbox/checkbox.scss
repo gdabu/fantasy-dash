@@ -10,6 +10,13 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  min-width: 140px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .checkbox {
+    min-width: 100px;
+  }
 }
 
 /* Hide the browser's default checkbox */
