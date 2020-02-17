@@ -10,7 +10,7 @@ import "./module_charts.scss";
 class module_charts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chartType: "radar", chartLabels: getStatAbbrArray() };
+    this.state = { chartLabels: getStatAbbrArray() };
   }
 
   statTypeCheckBox_onCheck = (statKey, statAbbr, checkedValue) => {
@@ -53,22 +53,12 @@ class module_charts extends React.Component {
     return checkBoxes;
   };
 
-  setChartType = () => {
-    this.setState(function(prevState, props) {
-      if (prevState.chartType === "radar") {
-        return { chartType: "bar" };
-      }
-
-      return { chartType: "radar" };
-    });
-  };
-
   setChartLabels = () => {};
 
   drawChart = () => {
     var ctx = ReactDOM.findDOMNode(this.refs.radarChart);
     var myChart = new Chart(ctx, {
-      type: this.state.chartType,
+      type: "radar",
       data: {
         labels: this.state.chartLabels,
         datasets: [
@@ -110,10 +100,6 @@ class module_charts extends React.Component {
             {this.initializeStatTypeCheckboxes()}
           </div>
         </div>
-
-        <button class="btn" onClick={this.setChartType}>
-          Alternate Graph
-        </button>
       </div>
     );
   }
