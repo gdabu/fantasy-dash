@@ -13,7 +13,27 @@ class module_charts extends React.Component {
     this.state = { chartLabels: getStatAbbrArray() };
   }
 
-  statTypeCheckBox_onCheck = (statKey, statAbbr, checkedValue) => {
+  initializeStatTypeCheckboxes = () => {
+    let checkBoxes = [];
+
+    for (const stat in STAT_TYPES) {
+      let stat_abbreviation = STAT_TYPES[stat].abbr;
+      let stat_name = STAT_TYPES[stat].name;
+
+      checkBoxes.push(
+        <Checkbox
+          itemClickHandler={this.setChartLabels}
+          label={stat_abbreviation}
+          value={stat}
+          checkedValue={true}
+        />
+      );
+    }
+
+    return checkBoxes;
+  };
+
+  setChartLabels = (statKey, statAbbr, checkedValue) => {
     this.setState(function(prevState, props) {
       let updatedChartLabels = prevState.chartLabels;
 
@@ -32,28 +52,6 @@ class module_charts extends React.Component {
       return { chartLabels: updatedChartLabels };
     });
   };
-
-  initializeStatTypeCheckboxes = () => {
-    let checkBoxes = [];
-
-    for (const stat in STAT_TYPES) {
-      let stat_abbreviation = STAT_TYPES[stat].abbr;
-      let stat_name = STAT_TYPES[stat].name;
-
-      checkBoxes.push(
-        <Checkbox
-          itemClickHandler={this.statTypeCheckBox_onCheck}
-          label={stat_abbreviation}
-          value={stat}
-          checkedValue={true}
-        />
-      );
-    }
-
-    return checkBoxes;
-  };
-
-  setChartLabels = () => {};
 
   drawChart = () => {
     var ctx = ReactDOM.findDOMNode(this.refs.radarChart);
