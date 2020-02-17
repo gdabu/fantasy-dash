@@ -1,12 +1,12 @@
 const STAT_TYPES = Object.freeze({
-  FIELD_GOAL_PCT: { name: "Field Goal Pct", abbr: "FG%" },
-  FREE_THROW_PCT: { name: "Free Throw Pct", abbr: "FT%" },
-  THREE_POINTS: { name: "Three Points Made", abbr: "3PTM" },
   POINTS: { name: "Points", abbr: "PTS" },
-  REOUNDS: { name: "Rebounds", abbr: "REB" },
+  THREE_POINTS: { name: "Three Points Made", abbr: "3PTM" },
   ASSIST: { name: "Assists", abbr: "AST" },
+  REOUNDS: { name: "Rebounds", abbr: "REB" },
   STEALS: { name: "Steals", abbr: "ST" },
   BLOCKS: { name: "Blocks", abbr: "BLK" },
+  FIELD_GOAL_PCT: { name: "Field Goal Pct", abbr: "FG%" },
+  FREE_THROW_PCT: { name: "Free Throw Pct", abbr: "FT%" },
   TURN_OVERS: { name: "Turn Overs", abbr: "TO" }
 });
 
