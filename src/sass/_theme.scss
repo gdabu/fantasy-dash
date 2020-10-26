@@ -11,10 +11,15 @@ body {
 
 html {
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 p {
   margin: 0px;
+}
+
+input {
+  box-sizing: border-box;
 }
 
 .btn {
@@ -58,4 +63,22 @@ p {
 
 .subHeader {
   font-size: 18px;
+}
+
+.input {
+  height: 48px;
+  width: 100%;
+  border: 1px solid #ecebed;
+  border-radius: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  &:focus {
+    outline: none;
+  }
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #3f3356;
+  opacity: 1; /* Firefox */
+  font-weight: 100;
 }
